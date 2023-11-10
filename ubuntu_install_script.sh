@@ -41,7 +41,11 @@ sudo apt install curl -y
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Install the bitwarden client
-sudo snap install bitwarden
+sudo snap install bitwarden -y
+
+# Install telegram
+sudo snap install telegram-desktop -y
+
 
 echo "
 ############################
