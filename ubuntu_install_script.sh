@@ -40,6 +40,8 @@ sudo apt install code
 sudo apt install curl -y
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+# Install the bitwarden client
+sudo snap install bitwarden
 
 echo "
 ############################
