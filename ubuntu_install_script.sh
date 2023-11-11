@@ -61,7 +61,7 @@ rm -f packages.microsoft.gpg
 
 sudo apt install apt-transport-https
 sudo apt update
-sudo apt install code
+sudo apt install code -y
 
 
 # Install Edge
@@ -69,7 +69,7 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge-stable.list'
 sudo rm microsoft.gpg
-sudo apt update && sudo apt install microsoft-edge-stable
+sudo apt update && sudo apt install microsoft-edge-stable -y
 
 
 # Instal Intune
@@ -79,7 +79,7 @@ sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] h
 sudo rm microsoft.gpg
 
 sudo apt update
-sudo apt install intune-portal
+sudo apt install intune-portal -y
 
 # # Install a manulally made list of vscode extentions.  
 # code --install-extention charliermarsh.ruff --force \
