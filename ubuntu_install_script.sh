@@ -9,10 +9,11 @@
 # ROOT ROOT ROOT ROOT ROOT  #
 #############################
 
-# make shure all software installed is upto date tmake shure i miss no dependencies
+# make shure all software installed is upto date and to make shure I miss no dependencies.
 sudo apt update -y && sudo apt upgrade -y
 
-
+# Instal general dependencies.
+sudo apt install curl wget gpg -y
 
 # install git and setup git
 sudo apt-get install git -y
@@ -27,7 +28,6 @@ ssh-add ~/.ssh/id_ed25519
 
 
 # install rust
-sudo apt install curl -y
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Install the bitwarden client
@@ -37,11 +37,6 @@ sudo snap install bitwarden -y
 sudo snap install telegram-desktop -y
 
 
-echo "
-############################
-# Just catching my breath! #
-############################
-"
 sleep 1
 echo "
 
@@ -51,49 +46,25 @@ echo "
 "
 sleep 1
 
+# Install MS tools. 
 
-# install vscode from MS repos
-sudo apt-get install wget gpg 
+# Setup vscode from MS repos
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 rm -f packages.microsoft.gpg
 
-sudo apt install apt-transport-https
-sudo apt update
-sudo apt install code -y
-
-
-# Install Edge
+# Setup Edge
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge-stable.list'
 sudo rm microsoft.gpg
-sudo apt update && sudo apt install microsoft-edge-stable -y
 
-
-# Instal Intune
+# Setup Intune
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo install -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/ 
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/ubuntu/22.04/prod jammy main" > /etc/apt/sources.list.d/microsoft-ubuntu-jammy-prod.list' 
 sudo rm microsoft.gpg
 
-sudo apt update
-sudo apt install intune-portal -y
-
-# # Install a manulally made list of vscode extentions.  
-# code --install-extention charliermarsh.ruff --force \
-#      --install-extention GitHub.copilot --force \
-#      --install-extention GitHub.copilot-chat --force \
-#      --install-extention ms-python.black-formatter --force \
-#      --install-extention ms-python.python --force \
-#      --install-extention ms-python.vscode-pylance --force \
-#      --install-extention ms-toolsai.jupyter --force \
-#      --install-extention ms-toolsai.jupyter-keymap --force \
-#      --install-extention ms-toolsai.jupyter-renderers --force \
-#      --install-extention ms-toolsai.vscode-jupyter-cell-tags --force \
-#      --install-extention ms-toolsai.vscode-jupyter-slideshow --force \
-#      --install-extention ms-vscode-remote.remote-ssh --force \
-#      --install-extention ms-vscode-remote.remote-ssh-edit --force \
-#      --install-extention ms-vscode.remote-explorer --force \
-#      --install-extention rust-lang.rust-analyzer --force 
+# Install Code, Edge and Intune
+sudo apt update && sudo apt install -y apt-transport-https code microsoft-edge-stable intune-portal 
