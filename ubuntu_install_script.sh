@@ -10,7 +10,7 @@
 #############################
 
 # make shure all software installed is upto date tmake shure i miss no dependencies
-sudo apt update -y
+sudo apt update -y && sudo apt upgrade -y
 
 
 
