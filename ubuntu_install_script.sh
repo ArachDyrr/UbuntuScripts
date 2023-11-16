@@ -31,10 +31,10 @@ ssh-add ~/.ssh/id_ed25519
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Install the bitwarden client
-sudo snap install bitwarden -y
+sudo snap install bitwarden
 
 # Install telegram
-sudo snap install telegram-desktop -y
+sudo snap install telegram-desktop
 
 
 sleep 1
